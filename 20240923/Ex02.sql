@@ -1,5 +1,6 @@
 SELECT
-    customernumber
+    customernumber,
+    amount
 FROM
     payments
 WHERE
