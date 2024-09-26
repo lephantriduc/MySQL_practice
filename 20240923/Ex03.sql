@@ -1,7 +1,7 @@
 SELECT
     orderNumber,
-    shippedDate
+    requiredDate
 FROM
     orders
 WHERE
-    shippedDate = '2003-01-18';
+    requiredDate = '2003-01-18';
