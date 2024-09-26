@@ -4,6 +4,6 @@ SELECT
 FROM
     orders
 WHERE
-    MONTH(shippedDate) = 4
-    AND YEAR(shippedDate) = 2005
+    MONTH(orderDate) = 4
+    AND YEAR(orderDate) = 2005
     AND STATUS = 'Shipped';
