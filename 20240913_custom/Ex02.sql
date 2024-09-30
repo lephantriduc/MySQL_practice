@@ -1,6 +1,6 @@
 SELECT
-    CONCAT(customer.first_name, " ", customer.last_name) AS name,
-    SUM((part.price * order_part.quantity))              AS total_cost
+    CONCAT(customer.first_name, ' ', customer.last_name) AS name,
+    SUM(part.price * order_part.quantity)           AS total_cost
 FROM
     `order`
     JOIN order_part ON `order`.id = order_part.order_id
