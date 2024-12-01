@@ -1,8 +1,7 @@
 -- 19.	List of productlines and vendors that supply the products in that productline. (65)
 SELECT DISTINCT
-    p.productVendor,
-    p.productline
+    p.productline,
+    p.productVendor
 FROM
     products p
-
-# WHY WOULD WE NEED NATURAL JOIN?????
+    NATURAL JOIN productlines
