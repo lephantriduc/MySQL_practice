@@ -8,6 +8,7 @@
 --      Give the category column (where you list 'Customer', 'Office', or 'Both') a header of "Category"
 --      and exclude any entries in which the state is null. (19)
 
+-- Using LEFT JOIN to filter NULLs
 SELECT
     o.state   AS State,
     o.country AS Country,
@@ -41,4 +42,46 @@ SELECT
     'Both'
 FROM
     customers c
-    JOIN offices o ON c.state = o.state
+    JOIN offices o ON c.state = o.state;
+
+-- Using NOT EXISTS to filter NULLs
+SELECT
+    o.state   AS State,
+    o.country AS Country,
+    'Office'  AS Category
+FROM
+    offices o
+WHERE
+    o.state IS NOT NULL
+    AND NOT EXISTS (
+        SELECT 1
+        FROM customers c
+        WHERE c.state = o.state
+                   )
+
+UNION
+
+SELECT
+    c.state,
+    c.country,
+    'Customer'
+FROM
+    customers c
+WHERE
+    c.state IS NOT NULL
+    AND NOT EXISTS(
+        SELECT 1
+        FROM offices o
+        WHERE o.state = c.state
+                  )
+
+UNION
+
+
+SELECT
+    c.state,
+    c.country,
+    'Both'
+FROM
+    customers c
+    JOIN offices o ON c.state = o.state;
