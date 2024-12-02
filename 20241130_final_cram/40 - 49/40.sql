@@ -18,8 +18,6 @@ FROM
 WHERE
     c.customerNumber IS NULL
     AND o.state IS NOT NULL
-GROUP BY
-    state, country
 
 UNION
 
@@ -33,8 +31,6 @@ FROM
 WHERE
     o.officeCode IS NULL
     AND c.state IS NOT NULL
-GROUP BY
-    state, country
 
 UNION
 
@@ -46,5 +42,3 @@ SELECT
 FROM
     customers c
     JOIN offices o ON c.state = o.state
-GROUP BY
-    state, country
