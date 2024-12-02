@@ -42,7 +42,9 @@ SELECT
     'Both'
 FROM
     customers c
-    JOIN offices o ON c.state = o.state;
+    JOIN offices o ON c.state = o.state
+ORDER BY
+    Country, State;
 
 -- Using NOT EXISTS to filter NULLs
 SELECT
@@ -84,4 +86,6 @@ SELECT
     'Both'
 FROM
     customers c
-    JOIN offices o ON c.state = o.state;
+    JOIN offices o ON c.state = o.state
+ORDER BY
+    Country, State;
